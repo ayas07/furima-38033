@@ -27,28 +27,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
-      it 'category_idが空では登録できない' do
-        @item.category_id = nil
+      it 'カテゴリーに「---」が選択されている場合は登録できない' do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category を選択してください')
       end
-      it 'condition_idが空では登録できない' do
-        @item.condition_id = nil
+      it '商品の状態に「---」が選択されている場合は登録できない' do
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition を選択してください')
       end
-      it 'delivery_charge_idが空では登録できない' do
-        @item.delivery_charge_id = nil
+      it '配送料の負担に「---」が選択されている場合は登録できない' do
+        @item.delivery_charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery charge を選択してください')
       end
-      it 'delivery_area_idが空では登録できない' do
-        @item.delivery_area_id = nil
+      it '発送元の地域に「---」が選択されている場合は登録できない' do
+        @item.delivery_area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery area を選択してください')
       end
-      it 'delivery_day_idが空では登録できない' do
-        @item.delivery_day_id = nil
+      it '発送までの日数に「---」が選択されている場合は登録できない' do
+        @item.delivery_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery day を選択してください')
       end
